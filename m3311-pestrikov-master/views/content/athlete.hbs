@@ -1,0 +1,93 @@
+<div class="body">
+  <div class="athlete-container">
+    <div class="athlete-header">
+      <div class="athlete-profile">
+        <div class="athlete-photo">
+          <img src="{{photo}}" alt="{{name}}" class="profile-image">
+        </div>
+        <div class="athlete-info">
+          <h1 class="athlete-name">{{name}}</h1>
+          <div class="university-info">
+            <a href="{{universityLink}}" class="university-link">{{university}}</a>
+          </div>
+          <div class="athlete-details">
+            <div class="athlete-detail-card">
+              <div class="athlete-detail-title">Год рождения</div>
+              <div>{{birthYear}}</div>
+            </div>
+            <div class="athlete-detail-card">
+              <div class="athlete-detail-title">Спортивное звание</div>
+              <div>{{sportTitle}}</div>
+            </div>
+            <div class="athlete-detail-card">
+              <div class="athlete-detail-title">Рост</div>
+              <div>{{height}} см</div>
+            </div>
+            <div class="athlete-detail-card">
+              <div class="athlete-detail-title">Вес</div>
+              <div>{{weight}} кг</div>
+            </div>
+            <div class="athlete-detail-card">
+              <div class="athlete-detail-title">Команда</div>
+              <div>{{team}}</div>
+            </div>
+            <div class="athlete-detail-card">
+              <div class="athlete-detail-title">Роль</div>
+              <div>{{role}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="athlete-results-section">
+      <h2 class="results-title">Результаты</h2>
+      <div class="results-table-container">
+        <table class="results-table">
+          <thead>
+          <tr>
+            <th>Название этапа</th>
+            <th>Команда / Категория</th>
+            <th>Дистанция</th>
+            <th>Результат</th>
+            <th>Место</th>
+            <th>Тип</th>
+          </tr>
+          </thead>
+          <tbody>
+          {{#each results}}
+            <tr>
+              <td>{{this.stageName}}</td>
+              <td>
+                {{#if this.team}}
+                  {{this.team}}
+                {{else if this.weightCategory}}
+                  {{this.weightCategory}}
+                {{else}}
+                  <span class="individual">Индивидуальный зачет</span>
+                {{/if}}
+              </td>
+              <td>{{this.distance}}</td>
+              <td><strong>{{this.result}}</strong></td>
+              <td class="place-column">
+                {{#if this.place}}
+                  <span class="regular-place">{{this.place}}</span>
+                {{else}}
+                  <span class="regular-place">-</span>
+                {{/if}}
+              </td>
+              <td>
+                {{#if (eq this.competitionType 'ergometer')}}
+                  <span class="competition-type ergometer">Concept2</span>
+                {{else}}
+                  <span class="competition-type water">Вода</span>
+                {{/if}}
+              </td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

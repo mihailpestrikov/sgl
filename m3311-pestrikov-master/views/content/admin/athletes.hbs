@@ -1,0 +1,124 @@
+<div class="body">
+  <div class="admin-container">
+    {{> admin/sidebar}}
+
+    <div class="admin-content">
+      <h1 class="admin-title">Управление спортсменами</h1>
+
+      <div class="admin-tabs">
+        <div class="admin-tab active" data-tab="list">Список</div>
+        <div class="admin-tab" data-tab="create">Создать</div>
+        <div class="admin-tab" data-tab="update">Обновить</div>
+        <div class="admin-tab" data-tab="delete">Удалить</div>
+      </div>
+
+      <div class="admin-tab-content active" id="list-tab">
+        <div class="form-group">
+          <label for="page">Страница:</label>
+          <input type="number" id="page" value="1" min="1">
+        </div>
+        <div class="form-group">
+          <label for="limit">Количество на странице:</label>
+          <input type="number" id="limit" value="10" min="1" max="50">
+        </div>
+        <div class="form-group">
+          <label for="search">Поиск по ФИО:</label>
+          <input type="text" id="search" placeholder="Введите ФИО для поиска">
+        </div>
+        <div class="form-group">
+          <label for="universityFilter">Фильтр по ВУЗу:</label>
+          <select id="universityFilter">
+            <option value="">Все ВУЗы</option>
+          </select>
+        </div>
+
+        <button type="button" id="list-athletes-btn">Загрузить</button>
+
+        <div id="athletes-list-result" class="response-display">
+        </div>
+      </div>
+
+      <div class="admin-tab-content" id="create-tab">
+        <h3 class="admin-form-title">Добавить нового спортсмена</h3>
+        <form class="admin-form" id="create-athlete-form">
+          <div class="form-group">
+            <label for="name">ФИО:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="role">Роль:</label>
+            <input type="text" id="role" name="role" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Пол:</label>
+            <select id="gender" name="gender" required>
+              <option value="Мужской">Мужской</option>
+              <option value="Женский">Женский</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="height">Рост (см):</label>
+            <input type="number" id="height" name="height" min="100" max="250" required>
+          </div>
+          <div class="form-group">
+            <label for="weight">Вес (кг):</label>
+            <input type="number" id="weight" name="weight" min="40" max="150" required>
+          </div>
+          <div class="form-group">
+            <label for="birthYear">Год рождения:</label>
+            <input type="number" id="birthYear" name="birthYear" min="1980" max="2010" required>
+          </div>
+          <div class="form-group">
+            <label for="sportTitle">Спортивное звание:</label>
+            <select id="sportTitle" name="sportTitle">
+              <option value="">Не указано</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="universityId">ВУЗ:</label>
+            <select id="universityId" name="universityId" required>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="teamId">Команда:</label>
+            <select id="teamId" name="teamId">
+              <option value="">Нет команды</option>
+            </select>
+          </div>
+          <div class="form-buttons">
+            <button type="submit">Создать</button>
+          </div>
+        </form>
+        <div id="create-athlete-result" class="response-display-json">
+        </div>
+      </div>
+
+      <div class="admin-tab-content" id="update-tab">
+        <h3 class="admin-form-title">Обновить данные спортсмена</h3>
+        <div class="form-group">
+          <label for="update-athlete-id">ID спортсмена:</label>
+          <input type="text" id="update-athlete-id" placeholder="Введите ID спортсмена">
+          <button type="button" id="load-athlete-btn">Загрузить данные</button>
+        </div>
+
+        <form class="admin-form" id="update-athlete-form">
+        </form>
+
+        <div id="update-athlete-result" class="response-display-json">
+        </div>
+      </div>
+
+      <div class="admin-tab-content" id="delete-tab">
+        <h3 class="admin-form-title">Удалить спортсмена</h3>
+        <div class="form-group">
+          <label for="delete-athlete-id">ID спортсмена:</label>
+          <input type="text" id="delete-athlete-id" placeholder="Введите ID спортсмена для удаления">
+        </div>
+        <button type="button" id="delete-athlete-btn" class="delete-btn">Удалить</button>
+
+        <div id="delete-athlete-result" class="response-display-json">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

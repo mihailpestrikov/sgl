@@ -1,0 +1,129 @@
+.participants-container {
+    padding: 20px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.participants-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+}
+
+.participants-container h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #1fa0eb;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.participants-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-form input[type="text"] {
+    width: 600px;
+    padding: 10px 15px;
+    border: 2px solid #1fa0eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #1e5dbb;
+    box-shadow: 0 0 8px rgba(30, 93, 187, 0.3);
+}
+
+.search-form button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #1fa0eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #1e5dbb;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.pagination-pages {
+    display: flex;
+    gap: 5px;
+}
+
+.pagination-btn {
+    padding: 8px 12px;
+    background-color: #f9f9f9;
+    color: #1fa0eb;
+    border: 1px solid #1fa0eb;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.pagination-btn:hover {
+    background-color: #e9f0f7;
+}
+
+.pagination-btn.current {
+    background-color: #1fa0eb;
+    color: white;
+    cursor: default;
+}
+
+.pagination-btn.disabled {
+    color: #ccc;
+    border-color: #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination-info {
+    text-align: center;
+    font-size: 14px;
+    color: #224c79;
+    margin-top: 10px;
+}
+
+.no-results {
+    text-align: center;
+    color: #f1f1f1;
+    font-size: 18px;
+    margin: 30px 0;
+}

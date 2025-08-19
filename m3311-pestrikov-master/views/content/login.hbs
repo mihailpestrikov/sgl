@@ -1,0 +1,28 @@
+<div class="body">
+  <div id="auth-container" class="container">
+    <div class="auth-tabs">
+      <button class="tab-btn active" onclick="showForm('login')">Вход</button>
+      <button class="tab-btn" onclick="showForm('register')">Регистрация</button>
+    </div>
+
+    <form id="login-form" class="auth-form">
+      <h2>Вход</h2>
+      <input type="text" placeholder="Логин" required>
+      <input type="password" placeholder="Пароль" required>
+      <button type="submit">Войти</button>
+    </form>
+
+    <form id="register-form" class="auth-form hidden">
+      <h2>Регистрация</h2>
+      <input type="text" placeholder="Логин" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Пароль" required>
+      <input type="password" placeholder="Повторите пароль" required>
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+  </div>
+  <div id="logout-container" class="container auth-form hidden">
+    <h2>Вы вошли как {{user}}</h2>
+    <button id="logout-button">Выйти</button>
+  </div>
+</div>

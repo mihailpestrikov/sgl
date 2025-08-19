@@ -1,0 +1,159 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model University {
+  id             String           @id @default(uuid())
+  name           String
+  shortName      String?
+  foundationDate String
+  sglJoinYear    Int
+  achievements   String?
+  description    String
+  headerImage    String?
+  logo           String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  athletes       Athlete[]
+  coaches        Coach[]
+  ratings        UniversityRating[]
+  teams          Team[]
+}
+
+model Athlete {
+  id             String           @id @default(uuid())
+  name           String
+  role           String
+  gender         String
+  height         Int
+  weight         Int
+  birthYear      Int
+  sportTitle     String?
+  photo          String?
+  profileLink    String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  university     University       @relation(fields: [universityId], references: [id])
+  universityId   String
+  team           Team?            @relation(fields: [teamId], references: [id])
+  teamId         String?
+  rating         PersonalRating?
+  results        AthleteResult[]
+}
+
+model Team {
+  id           String     @id @default(uuid())
+  name         String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  university   University @relation(fields: [universityId], references: [id])
+  universityId String
+  athletes     Athlete[]
+}
+
+model AthleteResult {
+  id              String     @id @default(uuid())
+  competitionName String
+  competitionType String
+  distance        String
+  result          String
+  place           Int?
+  date            DateTime
+  teamName        String?
+  weightCategory  String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  athlete         Athlete    @relation(fields: [athleteId], references: [id])
+  athleteId       String
+}
+
+model Coach {
+  id           String     @id @default(uuid())
+  name         String
+  role         String
+  description  String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  university   University @relation(fields: [universityId], references: [id])
+  universityId String
+}
+
+model UniversityRating {
+  id             String     @id @default(uuid())
+  position       Int
+  score          Float
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  gender         String
+
+  university     University @relation(fields: [universityId], references: [id])
+  universityId   String
+
+  @@unique([universityId, gender])
+}
+
+model PersonalRating {
+  id          String   @id @default(uuid())
+  place       Int
+  points      Int
+  gender      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  athlete     Athlete  @relation(fields: [athleteId], references: [id])
+  athleteId   String   @unique
+}
+
+model MediaItem {
+  id        String   @id @default(uuid())
+  src       String
+  alt       String?
+  type      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  passwordHash String
+  role         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model FinishProtocol {
+  id        String          @id @default(uuid())
+  distance  String
+  date      DateTime
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  entries   ProtocolEntry[]
+}
+
+model ProtocolEntry {
+  id                String         @id @default(uuid())
+  place             Int
+  athleteName       String
+  time              String
+  universityName    String
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  finishProtocol    FinishProtocol @relation(fields: [finishProtocolId], references: [id])
+  finishProtocolId  String
+}

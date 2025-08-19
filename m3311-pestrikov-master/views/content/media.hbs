@@ -1,0 +1,57 @@
+<div class="body">
+  <div class="media-page-container">
+    <section class="media-hero">
+      <h1 class="media-title">Медиа галерея</h1>
+      <p class="media-subtitle">Фотографии с соревнований Студенческой Гребной Лиги</p>
+    </section>
+
+    <section class="featured-media-section">
+      <h2 class="section-title">Избранные моменты</h2>
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {{#each carouselImages}}
+            <div class="swiper-slide">
+              <div class="slide-inner">
+                <img src="{{this.src}}" alt="{{this.alt}}" class="slide-image">
+              </div>
+            </div>
+          {{/each}}
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h2 class="section-title">Фотогалерея</h2>
+
+      <div class="image-grid">
+        {{#each galleryImages}}
+          <div class="gallery-item-wrapper">
+            <img src="{{this.src}}" alt="{{this.alt}}" class="gallery-image gallery-item">
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content-wrapper">
+      <button class="modal-close">&times;</button>
+      <div class="modal-content">
+        <img class="modal-image" id="modal-image" alt="" src="">
+      </div>
+      <button class="modal-download">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Скачать</span>
+      </button>
+    </div>
+  </div>
+</div>

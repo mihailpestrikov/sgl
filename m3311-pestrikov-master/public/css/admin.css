@@ -1,0 +1,211 @@
+.admin-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.admin-sidebar {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-height: 600px;
+}
+
+.admin-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #04264a;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1fa0eb;
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-nav-item {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: #04264a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.admin-nav-item:hover {
+    background-color: #e9f0f7;
+    transform: translateY(-2px);
+}
+
+.admin-nav-item.active {
+    background-color: #1fa0eb;
+    color: white;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #04264a;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.admin-form-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #04264a;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+}
+
+.response-display {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #1fa0eb;
+    max-width: 1200px;
+}
+
+.response-display-json {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #1fa0eb;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.response-display-json pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.admin-tab {
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+}
+
+.admin-tab.active {
+    background-color: #1fa0eb;
+    color: white;
+}
+
+.admin-tab-content {
+    display: none;
+}
+
+.admin-tab-content.active {
+    display: block;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.result-table th, .result-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.result-table td {
+    vertical-align: middle;
+}
+
+.search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.search-filters .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (max-width: 768px) {
+    .search-filters {
+        flex-direction: column;
+    }
+}
+
+
+.result-table th {
+    background-color: #04264a;
+    color: #fff;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #1fa0eb;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}

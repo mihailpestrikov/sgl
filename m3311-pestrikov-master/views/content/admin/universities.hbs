@@ -1,0 +1,105 @@
+<div class="body">
+  <div class="admin-container">
+    {{> admin/sidebar}}
+
+    <div class="admin-content">
+      <h1 class="admin-title">Управление университетами</h1>
+
+      <div class="admin-tabs">
+        <div class="admin-tab active" data-tab="list">Список</div>
+        <div class="admin-tab" data-tab="create">Создать</div>
+        <div class="admin-tab" data-tab="update">Обновить</div>
+        <div class="admin-tab" data-tab="delete">Удалить</div>
+      </div>
+
+      <div class="admin-tab-content active" id="list-tab">
+        <div class="form-group">
+          <label for="page">Страница:</label>
+          <input type="number" id="page" value="1" min="1">
+        </div>
+        <div class="form-group">
+          <label for="limit">Количество на странице:</label>
+          <input type="number" id="limit" value="10" min="1" max="50">
+        </div>
+        <div class="form-group">
+          <label for="search">Поиск по названию:</label>
+          <input type="text" id="search" placeholder="Введите название для поиска">
+        </div>
+        <button type="button" id="list-universities-btn">Загрузить</button>
+
+        <div id="universities-list-result" class="response-display">
+        </div>
+      </div>
+
+      <div class="admin-tab-content" id="create-tab">
+        <h3 class="admin-form-title">Добавить новый университет</h3>
+        <form class="admin-form" id="create-university-form">
+          <div class="form-group">
+            <label for="name">Полное название:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="shortName">Сокращенное название:</label>
+            <input type="text" id="shortName" name="shortName">
+          </div>
+          <div class="form-group">
+            <label for="foundationDate">Дата основания:</label>
+            <input type="text" id="foundationDate" name="foundationDate" placeholder="Например: 26 марта 1900 г." required>
+          </div>
+          <div class="form-group">
+            <label for="sglJoinYear">Год вступления в СГЛ:</label>
+            <input type="number" id="sglJoinYear" name="sglJoinYear" min="1900" max="2025" required>
+          </div>
+          <div class="form-group">
+            <label for="achievements">Достижения:</label>
+            <input type="text" id="achievements" name="achievements" placeholder="Например: Чемпион СГЛ 2020, 2022, 2023">
+          </div>
+          <div class="form-group">
+            <label for="description">Описание:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="headerImage">URL баннера:</label>
+            <input type="text" id="headerImage" name="headerImage" placeholder="/img/universities/example_banner.jpg">
+          </div>
+          <div class="form-group">
+            <label for="logo">URL логотипа:</label>
+            <input type="text" id="logo" name="logo" placeholder="/img/universities/example_logo.png">
+          </div>
+          <div class="form-buttons">
+            <button type="submit">Создать</button>
+          </div>
+        </form>
+        <div id="create-university-result" class="response-display-json">
+        </div>
+      </div>
+
+      <div class="admin-tab-content" id="update-tab">
+        <h3 class="admin-form-title">Обновить данные университета</h3>
+        <div class="form-group">
+          <label for="update-university-id">ID университета:</label>
+          <input type="text" id="update-university-id" placeholder="Введите ID университета">
+          <button type="button" id="load-university-btn">Загрузить данные</button>
+        </div>
+
+        <form class="admin-form" id="update-university-form">
+        </form>
+
+        <div id="update-university-result" class="response-display-json">
+        </div>
+      </div>
+
+      <div class="admin-tab-content" id="delete-tab">
+        <h3 class="admin-form-title">Удалить университет</h3>
+        <div class="form-group">
+          <label for="delete-university-id">ID университета:</label>
+          <input type="text" id="delete-university-id" placeholder="Введите ID университета для удаления">
+        </div>
+        <button type="button" id="delete-university-btn" class="delete-btn">Удалить</button>
+
+        <div id="delete-university-result" class="response-display-json">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,333 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Athlete {
+  """Год рождения спортсмена"""
+  birthYear: Float!
+
+  """Пол спортсмена"""
+  gender: String!
+
+  """Рост спортсмена в сантиметрах"""
+  height: Float!
+  id: ID!
+
+  """ФИО спортсмена"""
+  name: String!
+
+  """URL фотографии спортсмена"""
+  photo: String
+
+  """Персональный рейтинг спортсмена"""
+  rating: PersonalRating
+
+  """Результаты спортсмена"""
+  results: [AthleteResultGQL!]!
+
+  """Роль спортсмена (гребец, рулевой и т.д.)"""
+  role: String!
+
+  """Спортивное звание"""
+  sportTitle: String
+
+  """Команда спортсмена"""
+  team: Team
+
+  """Университет спортсмена"""
+  university: University!
+
+  """Вес спортсмена в килограммах"""
+  weight: Float!
+}
+
+input AthleteInput {
+  """Год рождения"""
+  birthYear: Int!
+
+  """Пол спортсмена"""
+  gender: String!
+
+  """Рост спортсмена в см"""
+  height: Int!
+
+  """ФИО спортсмена"""
+  name: String!
+
+  """Роль спортсмена"""
+  role: String!
+
+  """Спортивное звание"""
+  sportTitle: String
+
+  """ID команды"""
+  teamId: String
+
+  """ID университета"""
+  universityId: String!
+
+  """Вес спортсмена в кг"""
+  weight: Int!
+}
+
+type AthleteResultGQL {
+  """Спортсмен, показавший результат"""
+  athlete: Athlete!
+
+  """Название соревнования"""
+  competitionName: String!
+
+  """Тип соревнования (вода, эргометр)"""
+  competitionType: String!
+
+  """Дата создания записи"""
+  createdAt: DateTime!
+
+  """Дата проведения соревнования"""
+  date: DateTime!
+
+  """Дистанция"""
+  distance: String!
+  id: ID!
+
+  """Занятое место"""
+  place: Float
+
+  """Результат (время)"""
+  result: String!
+
+  """Название команды"""
+  teamName: String
+
+  """Дата последнего обновления записи"""
+  updatedAt: DateTime!
+
+  """Весовая категория"""
+  weightCategory: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  """Создать нового спортсмена"""
+  createAthlete(input: AthleteInput!): Athlete!
+
+  """Создать новый университет"""
+  createUniversity(input: UniversityInput!): University!
+
+  """Удалить спортсмена"""
+  removeAthlete(id: ID!): Boolean!
+
+  """Удалить университет"""
+  removeUniversity(id: ID!): Boolean!
+
+  """Обновить данные спортсмена"""
+  updateAthlete(id: ID!, input: AthleteInput!): Athlete!
+
+  """Обновить данные университета"""
+  updateUniversity(id: ID!, input: UniversityInput!): University!
+}
+
+type PaginatedAthletes {
+  """Список элементов на странице"""
+  items: [Athlete!]!
+
+  """Количество элементов на странице"""
+  limit: Int!
+
+  """Номер текущей страницы"""
+  page: Int!
+
+  """Общее количество элементов"""
+  total: Int!
+
+  """Общее количество страниц"""
+  totalPages: Int!
+}
+
+type PaginatedTeams {
+  """Список элементов на странице"""
+  items: [Team!]!
+
+  """Количество элементов на странице"""
+  limit: Int!
+
+  """Номер текущей страницы"""
+  page: Int!
+
+  """Общее количество элементов"""
+  total: Int!
+
+  """Общее количество страниц"""
+  totalPages: Int!
+}
+
+type PaginatedUniversities {
+  """Список элементов на странице"""
+  items: [University!]!
+
+  """Количество элементов на странице"""
+  limit: Int!
+
+  """Номер текущей страницы"""
+  page: Int!
+
+  """Общее количество элементов"""
+  total: Int!
+
+  """Общее количество страниц"""
+  totalPages: Int!
+}
+
+input PaginationInput {
+  """Количество элементов на странице"""
+  limit: Int = 10
+
+  """Номер страницы"""
+  page: Int = 1
+}
+
+type PersonalRating {
+  """Спортсмен"""
+  athlete: Athlete!
+
+  """Пол (Мужской/Женский)"""
+  gender: String!
+  id: ID!
+
+  """Место в рейтинге"""
+  place: Float!
+
+  """Количество очков"""
+  points: Float!
+}
+
+type Query {
+  """Получить спортсмена по ID"""
+  athlete(id: ID!): Athlete!
+
+  """Получить список спортсменов с пагинацией"""
+  athletes(pagination: PaginationInput): PaginatedAthletes!
+
+  """Получить мужской персональный рейтинг"""
+  menPersonalRatings: [PersonalRating!]!
+
+  """Получить мужской рейтинг университетов"""
+  menUniversityRatings: [UniversityRating!]!
+
+  """Получить команду по ID"""
+  team(id: ID!): Team!
+
+  """Получить список команд с пагинацией"""
+  teams(pagination: PaginationInput): PaginatedTeams!
+
+  """Получить список университетов с пагинацией"""
+  universities(pagination: PaginationInput): PaginatedUniversities!
+
+  """Получить университет по ID"""
+  university(id: ID!): University!
+
+  """Получить женский персональный рейтинг"""
+  womenPersonalRatings: [PersonalRating!]!
+
+  """Получить женский рейтинг университетов"""
+  womenUniversityRatings: [UniversityRating!]!
+}
+
+type Team {
+  """Спортсмены в команде"""
+  athletes: [Athlete!]!
+
+  """Дата создания записи"""
+  createdAt: DateTime!
+  id: ID!
+
+  """Название команды"""
+  name: String!
+
+  """Университет, к которому относится команда"""
+  university: University!
+
+  """Дата последнего обновления записи"""
+  updatedAt: DateTime!
+}
+
+type University {
+  """Достижения университета в СГЛ"""
+  achievements: String
+
+  """Спортсмены университета"""
+  athletes: [Athlete!]!
+
+  """Описание университета"""
+  description: String!
+
+  """Дата основания университета"""
+  foundationDate: String!
+
+  """URL заголовочного изображения"""
+  headerImage: String
+  id: ID!
+
+  """URL логотипа университета"""
+  logo: String
+
+  """Полное название университета"""
+  name: String!
+
+  """Рейтинги университета"""
+  ratings: [UniversityRating!]!
+
+  """Год вступления в Студенческую Гребную Лигу"""
+  sglJoinYear: Float!
+
+  """Сокращенное название университета"""
+  shortName: String
+
+  """Команды университета"""
+  teams: [Team!]!
+}
+
+input UniversityInput {
+  """Достижения в СГЛ"""
+  achievements: String
+
+  """Описание университета"""
+  description: String!
+
+  """Дата основания университета"""
+  foundationDate: String!
+
+  """URL заголовочного изображения"""
+  headerImage: String
+
+  """URL логотипа"""
+  logo: String
+
+  """Полное название университета"""
+  name: String!
+
+  """Год вступления в СГЛ"""
+  sglJoinYear: Int!
+
+  """Сокращенное название университета"""
+  shortName: String
+}
+
+type UniversityRating {
+  """Пол (Мужской/Женский)"""
+  gender: String!
+  id: ID!
+
+  """Позиция в рейтинге"""
+  position: Float!
+
+  """Очки рейтинга"""
+  score: Float!
+
+  """Университет"""
+  university: University!
+}

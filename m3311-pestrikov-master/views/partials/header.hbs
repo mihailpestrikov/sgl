@@ -1,0 +1,23 @@
+<header>
+  <img src="{{bannerImage}}" alt="Баннер" class="banner-image">
+
+  <nav class="nav">
+    <div class="nav__logo">
+      <a href="{{homeLink}}" class="link">
+        <img src="{{logoImage}}" alt="Логотип сайта" class="logo__img">
+      </a>
+    </div>
+
+    <div class="nav__title">
+      <a href="{{homeLink}}" class="link">
+        <span id="nav__title1">{{navTitle1}}</span><br>
+        <span id="nav__title2">{{navTitle2}}</span>
+      </a>
+    </div>
+
+    <div class="menu">
+      <div class="burger"><span></span></div>
+      {{> menu}}
+    </div>
+  </nav>
+</header>

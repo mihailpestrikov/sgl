@@ -1,0 +1,134 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-image {
+    max-width: 85%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.modal-caption {
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    margin: 0 auto 20px;
+    max-width: 80%;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    background: none;
+    border: none;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 102;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.modal-close:hover {
+    color: #fff;
+    background: none;
+}
+
+.modal-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #1fa0eb;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-download:hover {
+    background-color: #0b5aaf;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-download svg {
+    transition: transform 0.3s ease;
+}
+
+.modal-download:hover svg {
+    transform: translateY(-0.5px);
+}
+
+@media (max-width: 768px) {
+    .modal {
+        padding: 20px 0;
+    }
+
+    .modal-image {
+        max-width: 90%;
+    }
+
+    .modal-caption {
+        font-size: 1rem;
+        padding: 10px 0;
+        max-width: 90%;
+    }
+
+    .modal-download {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .modal-close {
+        top: 15px;
+        right: 15px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-image {
+        max-width: 95%;
+        max-height: 60vh;
+    }
+
+    .modal-caption {
+        max-width: 95%;
+    }
+}

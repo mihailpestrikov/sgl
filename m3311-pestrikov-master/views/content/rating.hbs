@@ -1,0 +1,164 @@
+<div class="body">
+  <div class="rating-container">
+    <h1 class="rating-main-title">Рейтинг</h1>
+
+    <div class="toggle-buttons">
+      <div class="toggle-row">
+        <button class="toggle-btn active" data-target="teams">Команды</button>
+        <button class="toggle-btn" data-target="athletes">Гребцы</button>
+      </div>
+      <div class="toggle-row">
+        <button class="toggle-btn active" data-target="men">Мужчины</button>
+        <button class="toggle-btn" data-target="women">Женщины</button>
+      </div>
+    </div>
+
+    <div id="teams-men" class="rating-section active">
+      <div class="rating-tables">
+        <div class="rating-table rating-table__university">
+          <h2 class="section-title-rating">Рейтинг команд (мужчины)</h2>
+          <table class="data-table">
+            <thead>
+            <tr>
+              <th>Место</th>
+              <th>Университет</th>
+              <th>Очки</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each menUniversityRating}}
+              <tr>
+                <td class="place-column">
+                  {{#if (eq this.position 1)}}
+                    <span class="medal gold-medal">1</span>
+                  {{else if (eq this.position 2)}}
+                    <span class="medal silver-medal">2</span>
+                  {{else if (eq this.position 3)}}
+                    <span class="medal bronze-medal">3</span>
+                  {{else}}
+                    <span class="regular-place">{{this.position}}</span>
+                  {{/if}}
+                </td>
+                <td><a href="{{this.link}}" class="university-link">{{this.university}}</a></td>
+                <td class="points-column">{{this.score}}</td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="teams-women" class="rating-section">
+      <div class="rating-tables">
+        <div class="rating-table rating-table__university">
+          <h2 class="section-title-rating">Рейтинг команд (женщины)</h2>
+          <table class="data-table">
+            <thead>
+            <tr>
+              <th>Место</th>
+              <th>Университет</th>
+              <th>Очки</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each womenUniversityRating}}
+              <tr>
+                <td class="place-column">
+                  {{#if (eq this.position 1)}}
+                    <span class="medal gold-medal">1</span>
+                  {{else if (eq this.position 2)}}
+                    <span class="medal silver-medal">2</span>
+                  {{else if (eq this.position 3)}}
+                    <span class="medal bronze-medal">3</span>
+                  {{else}}
+                    <span class="regular-place">{{this.position}}</span>
+                  {{/if}}
+                </td>
+                <td><a href="{{this.link}}" class="university-link">{{this.university}}</a></td>
+                <td class="points-column">{{this.score}}</td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="athletes-men" class="rating-section">
+      <div class="rating-tables">
+        <div class="rating-table rating-table__personal">
+          <h2 class="section-title-rating">Личный рейтинг (мужчины)</h2>
+          <table class="data-table">
+            <thead>
+            <tr>
+              <th>Место</th>
+              <th>Имя</th>
+              <th>Университет</th>
+              <th>Очки</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each menPersonalRating}}
+              <tr>
+                <td class="place-column">
+                  {{#if (eq this.place 1)}}
+                    <span class="medal gold-medal">1</span>
+                  {{else if (eq this.place 2)}}
+                    <span class="medal silver-medal">2</span>
+                  {{else if (eq this.place 3)}}
+                    <span class="medal bronze-medal">3</span>
+                  {{else}}
+                    <span class="regular-place">{{this.place}}</span>
+                  {{/if}}
+                </td>
+                <td><a href="/athlete/{{this.athleteId}}" class="athlete-link">{{this.name}}</a></td>
+                <td><a href="/university/{{this.universityId}}" class="university-link">{{this.university}}</a></td>
+                <td class="points-column">{{this.points}}</td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="athletes-women" class="rating-section">
+      <div class="rating-tables">
+        <div class="rating-table rating-table__personal">
+          <h2 class="section-title-rating">Личный рейтинг (женщины)</h2>
+          <table class="data-table">
+            <thead>
+            <tr>
+              <th>Место</th>
+              <th>Имя</th>
+              <th>Университет</th>
+              <th>Очки</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each womenPersonalRating}}
+              <tr>
+                <td class="place-column">
+                  {{#if (eq this.place 1)}}
+                    <span class="medal gold-medal">1</span>
+                  {{else if (eq this.place 2)}}
+                    <span class="medal silver-medal">2</span>
+                  {{else if (eq this.place 3)}}
+                    <span class="medal bronze-medal">3</span>
+                  {{else}}
+                    <span class="regular-place">{{this.place}}</span>
+                  {{/if}}
+                </td>
+                <td><a href="/athlete/{{this.athleteId}}" class="athlete-link">{{this.name}}</a></td>
+                <td><a href="/university/{{this.universityId}}" class="university-link">{{this.university}}</a></td>
+                <td class="points-column">{{this.points}}</td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

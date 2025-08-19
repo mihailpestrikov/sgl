@@ -1,0 +1,79 @@
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    height: 350px;
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    background-color: #1fa0eb;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 50%;
+    transition: background 0.3s ease;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.tab-btn:hover {
+    background-color: #1e5dbb;
+}
+
+.tab-btn.active {
+    background-color: #0a4687;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-form h2 {
+    color: white;
+    font-size: 24px;
+}
+
+.auth-form input {
+    padding: 10px;
+    border: 2px solid #1fa0eb;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+    border-color: #1e5dbb;
+    box-shadow: 0 0 8px rgba(30, 93, 187, 0.3);
+}
+
+
+.auth-form button {
+    padding: 10px;
+    background-color: #1fa0eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: #1e5dbb;
+}
+
+.hidden {
+    display: none;
+}

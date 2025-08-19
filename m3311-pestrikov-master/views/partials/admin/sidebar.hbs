@@ -1,0 +1,12 @@
+<div class="admin-sidebar">
+  <h2>Управление</h2>
+  <nav class="admin-nav">
+    <a href="/admin" class="admin-nav-item {{#if (eq currentPage 'main')}}active{{/if}}">Главная</a>
+    <a href="/admin/athletes" class="admin-nav-item {{#if (eq currentPage 'athletes')}}active{{/if}}">Спортсмены</a>
+    <a href="/admin/universities" class="admin-nav-item {{#if (eq currentPage 'universities')}}active{{/if}}">Университеты</a>
+    <a href="/admin/teams" class="admin-nav-item {{#if (eq currentPage 'teams')}}active{{/if}}">Команды</a>
+    <a href="/admin/results" class="admin-nav-item {{#if (eq currentPage 'results')}}active{{/if}}">Результаты</a>
+    <a href="/admin/coaches" class="admin-nav-item {{#if (eq currentPage 'coaches')}}active{{/if}}">Тренеры</a>
+    <a href="/admin/ratings" class="admin-nav-item {{#if (eq currentPage 'ratings')}}active{{/if}}">Рейтинги</a>
+  </nav>
+</div>

@@ -1,0 +1,68 @@
+<div class="body_columns">
+  <div class="score-table score-table__men">
+    <div class="title">
+      <div class="title__name">рейтинг</div>
+      <div class="title__league">мужчины</div>
+    </div>
+    <div class="score-table__divider"></div>
+    <div class="rating">
+      {{#each menRatings}}
+        <div class="rating__item">
+          <span class="rating__position">{{this.position}}</span>
+          <a href="{{this.link}}" class="rating__university">{{this.university}}</a>
+          <strong class="rating__score">{{this.score}}</strong>
+        </div>
+      {{/each}}
+    </div>
+    <div class="view-all">
+      <a href="{{viewAllLink}}">Посмотреть все</a>
+    </div>
+  </div>
+
+
+  <div class="score-table score-table__women">
+    <div class="title">
+      <div class="title__name">рейтинг</div>
+      <div class="title__league">женщины</div>
+    </div>
+    <div class="score-table__divider"></div>
+    <div class="rating">
+      {{#each womenRatings}}
+        <div class="rating__item">
+          <span class="rating__position">{{this.position}}</span>
+          <a href="{{this.link}}" class="rating__university">{{this.university}}</a>
+          <strong class="rating__score">{{this.score}}</strong>
+        </div>
+      {{/each}}
+    </div>
+    <div class="view-all">
+      <a href="{{viewAllLink}}">Посмотреть все</a>
+    </div>
+  </div>
+
+
+  <div class="news">
+    <div class="title">
+      <div class="title__name">Новости</div>
+    </div>
+    <div id="preloader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+
+    <div class="news-list" id="news-list">
+
+    </div>
+
+  </div>
+
+  <aside class="articles">
+    <div class="title">
+      <div class="title__name">Статьи</div>
+    </div>
+
+  </aside>
+
+  <aside class="media">
+    <div class="title">
+      <div class="title__name">Медиа</div>
+    </div>
+  </aside>
+</div>

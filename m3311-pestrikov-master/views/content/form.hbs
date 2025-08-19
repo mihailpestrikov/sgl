@@ -1,0 +1,21 @@
+<div class="filler-height">
+  <div class="protocol-form" id="protocolFormContainer">
+    <h2>Создание финишного протокола</h2>
+    <form id="protocolForm">
+      <div class="form-group">
+        <label for="rowCount">Количество участников:</label>
+        <input type="number" id="rowCount" name="rowCount" min="1" required>
+      </div>
+      <div class="form-group">
+        <label for="distance">Дистанция:</label>
+        <input type="text" id="distance" name="distance" required>
+      </div>
+      <button type="submit">Создать таблицу</button>
+    </form>
+    <div id="tableContainer"></div>
+    <div class="form-group">
+      <button id="saveTable">Сохранить</button>
+      <button id="loadTable">Загрузить</button>
+    </div>
+  </div>
+</div>

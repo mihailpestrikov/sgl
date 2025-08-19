@@ -1,0 +1,44 @@
+<div class="body">
+  <div class="participants-container">
+    <h1>Участники</h1>
+
+    <form class="search-form" action="#" method="get">
+      <input type="text" name="search" placeholder="Поиск по ФИО" aria-label="Поиск по ФИО">
+      <button type="submit">Найти</button>
+    </form>
+
+    <div class="participants-list">
+      {{#each participants}}
+        {{> participant-card}}
+      {{/each}}
+    </div>
+
+    <div class="pagination">
+      {{#if pagination.hasPrevPage}}
+        <a href="?page={{pagination.prevPage}}{{#if searchQuery}}&search={{searchQuery}}{{/if}}" class="pagination-btn">&laquo; Предыдущая</a>
+      {{else}}
+        <span class="pagination-btn disabled">&laquo; Предыдущая</span>
+      {{/if}}
+
+      <div class="pagination-pages">
+        {{#each pagination.pages}}
+          {{#if this.current}}
+            <span class="pagination-btn current">{{this.number}}</span>
+          {{else}}
+            <a href="?page={{this.number}}{{#if ../searchQuery}}&search={{../searchQuery}}{{/if}}" class="pagination-btn">{{this.number}}</a>
+          {{/if}}
+        {{/each}}
+      </div>
+
+      {{#if pagination.hasNextPage}}
+        <a href="?page={{pagination.nextPage}}{{#if searchQuery}}&search={{searchQuery}}{{/if}}" class="pagination-btn">Следующая &raquo;</a>
+      {{else}}
+        <span class="pagination-btn disabled">Следующая &raquo;</span>
+      {{/if}}
+    </div>
+
+    <div class="pagination-info">
+      Показано {{pagination.startItem}} - {{pagination.endItem}} из {{pagination.totalItems}} участников
+    </div>
+  </div>
+</div>

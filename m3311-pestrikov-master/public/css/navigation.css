@@ -1,0 +1,143 @@
+.nav {
+    display: grid;
+    grid-template-columns: minmax(38px, 38px) minmax(265px, max-content) minmax(auto, 1fr);
+    grid-column-gap: 10px;
+    align-items: center;
+    justify-items: end;
+    margin: 0 auto;
+    width: min(95%, 1200px);
+    padding: 5px;
+}
+
+.burger {
+    display: none;
+}
+
+.menu__list {
+    margin: 0;
+    padding-left: 0;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    justify-self: end;
+    border: none;
+}
+
+.menu__item {
+    font-weight: 600;
+    height: 56px;
+    line-height: 56px;
+    list-style: none;
+    padding: 0 5px;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}
+
+.active-underline {
+    color: #1fa0eb;
+    border-bottom: 2px solid #1fa0eb;
+    font-weight: bold;
+}
+
+.link {
+    text-decoration: none;
+}
+
+@media(max-width: 1170px) {
+    .menu__list {
+        /*flex-wrap: wrap;*/
+        height: auto;
+        justify-content: flex-end;
+        line-height: 15px;
+        text-align: center;
+        width: 400px;
+    }
+}
+
+@media(max-width: 830px) {
+    .burger {
+        cursor: pointer;
+        display: block;
+        grid-column: 3/4;
+        grid-row: 1/2;
+        height: 16px;
+        justify-self: end;
+        position: relative;
+        width: 20px;
+    }
+
+    .burger span {
+        background: #fff;
+        height: 2px;
+        position: absolute;
+        border-radius: 3px;
+        top: 7px;
+        width: 100%;
+    }
+
+    .burger:before {
+        top: 0;
+        height: 2.5px;
+    }
+
+    .burger:after, .burger:before {
+        background: #fff;
+        border-radius: 3px;
+        content: "";
+        position: absolute;
+        transition: all .3s linear 0s;
+        width: 100%;
+    }
+
+    .burger:after {
+        bottom: 0;
+        height: 2px;
+    }
+
+    .menu__list {
+        position: absolute;
+        align-content: center;
+        background: #04264a;
+        flex-direction: column;
+        right: 0;
+        opacity: 0;
+        width: 100vw;
+        z-index: -1;
+        height: auto;
+        margin-top: 10px;
+        font-size: 14px;
+        padding-bottom: 10px;
+    }
+
+    .menu__item {
+        height: 42px;
+        line-height: 42px;
+    }
+
+    .menu__list.active {
+        opacity: 1;
+        z-index: 999;
+    }
+
+    .link {
+        width: 100%;
+    }
+}
+
+.nav__title {
+    line-height: 15px;
+}
+
+#nav__title1 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#nav__title2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1fa0eb;
+    font-size: 10px;
+}
