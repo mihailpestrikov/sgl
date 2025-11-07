@@ -1,4 +1,9 @@
-document.getElementById("saveTable").addEventListener("click", () => {
+const saveTableBtn = document.getElementById("saveTable");
+const loadTableBtn = document.getElementById("loadTable");
+
+if (saveTableBtn && !saveTableBtn.dataset.initialized) {
+    saveTableBtn.dataset.initialized = 'true';
+    saveTableBtn.addEventListener("click", () => {
     const table = document.querySelector(".protocol-table");
     const theadRows = Array.from(table.querySelector("thead").rows).map(row =>
         Array.from(row.cells).map(cell => cell.textContent)
@@ -9,9 +14,12 @@ document.getElementById("saveTable").addEventListener("click", () => {
     const tableData = { thead: theadRows, tbody: tbodyRows };
     localStorage.setItem("protocolTable", JSON.stringify(tableData));
     alert("Таблица сохранена!");
-});
+    });
+}
 
-document.getElementById("loadTable").addEventListener("click", () => {
+if (loadTableBtn && !loadTableBtn.dataset.initialized) {
+    loadTableBtn.dataset.initialized = 'true';
+    loadTableBtn.addEventListener("click", () => {
     const tableData = JSON.parse(localStorage.getItem("protocolTable"));
     if (!tableData) {
         alert("Нет сохраненных данных.");
@@ -57,8 +65,8 @@ document.getElementById("loadTable").addEventListener("click", () => {
     tableContainer.innerHTML = "";
     tableContainer.appendChild(table);
     updateProtocolFormHeight();
-});
-
+    });
+}
 
 
 function updateProtocolFormHeight() {

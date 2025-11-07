@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const protocolFormContainer = document.getElementById("protocolFormContainer");
     const tableContainer = document.getElementById("tableContainer");
+    const protocolForm = document.getElementById('protocolForm');
 
-    document.getElementById('protocolForm').addEventListener('submit', function (event) {
+    if (!protocolForm || protocolForm.dataset.initialized) return;
+    protocolForm.dataset.initialized = 'true';
+
+    protocolForm.addEventListener('submit', function (event) {
         event.preventDefault();
     
         const rowCount = parseInt(document.getElementById('rowCount').value, 10);

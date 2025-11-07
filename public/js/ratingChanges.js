@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof EventSource !== 'undefined') {
+    if (window.ratingEventSource) {
+      window.ratingEventSource.close();
+    }
+
     const source = new EventSource('/rating/changes');
+    window.ratingEventSource = source;
 
     source.onmessage = function(event) {
       const data = JSON.parse(event.data);
@@ -52,6 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
         location.reload();
       }, 5000);
     };
+
+    window.addEventListener('beforeunload', function() {
+      if (window.ratingEventSource) {
+        window.ratingEventSource.close();
+      }
+    });
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && window.ratingEventSource) {
+        window.ratingEventSource.close();
+      }
+    });
   }
 
   function pluralizePositions(count) {

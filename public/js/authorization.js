@@ -3,6 +3,11 @@ const loginForm = document.getElementById('login-form');
 const logoutContainer = document.getElementById('logout-container');
 const logoutButton = document.getElementById('logout-button');
 
+if (!loginForm || loginForm.dataset.initialized) {
+    return;
+}
+loginForm.dataset.initialized = 'true';
+
 let isAuthenticated = false;
 
 async function login() {

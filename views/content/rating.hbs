@@ -39,7 +39,7 @@
                     <span class="regular-place">{{this.position}}</span>
                   {{/if}}
                 </td>
-                <td><a href="{{this.link}}" class="university-link">{{this.university}}</a></td>
+                <td><a href="/university/{{this.universityId}}" class="university-link">{{#if this.university.shortName}}{{this.university.shortName}}{{else}}{{this.university.name}}{{/if}}</a></td>
                 <td class="points-column">{{this.score}}</td>
               </tr>
             {{/each}}
@@ -75,7 +75,7 @@
                     <span class="regular-place">{{this.position}}</span>
                   {{/if}}
                 </td>
-                <td><a href="{{this.link}}" class="university-link">{{this.university}}</a></td>
+                <td><a href="/university/{{this.universityId}}" class="university-link">{{#if this.university.shortName}}{{this.university.shortName}}{{else}}{{this.university.name}}{{/if}}</a></td>
                 <td class="points-column">{{this.score}}</td>
               </tr>
             {{/each}}
@@ -112,8 +112,8 @@
                     <span class="regular-place">{{this.place}}</span>
                   {{/if}}
                 </td>
-                <td><a href="/athlete/{{this.athleteId}}" class="athlete-link">{{this.name}}</a></td>
-                <td><a href="/university/{{this.universityId}}" class="university-link">{{this.university}}</a></td>
+                <td><a href="/athlete/{{this.athleteId}}" class="athlete-link">{{this.athlete.name}}</a></td>
+                <td><a href="/university/{{this.athlete.universityId}}" class="university-link">{{#if this.athlete.university.shortName}}{{this.athlete.university.shortName}}{{else}}{{this.athlete.university.name}}{{/if}}</a></td>
                 <td class="points-column">{{this.points}}</td>
               </tr>
             {{/each}}
@@ -150,8 +150,8 @@
                     <span class="regular-place">{{this.place}}</span>
                   {{/if}}
                 </td>
-                <td><a href="/athlete/{{this.athleteId}}" class="athlete-link">{{this.name}}</a></td>
-                <td><a href="/university/{{this.universityId}}" class="university-link">{{this.university}}</a></td>
+                <td><a href="/athlete/{{this.athleteId}}" class="athlete-link">{{this.athlete.name}}</a></td>
+                <td><a href="/university/{{this.athlete.universityId}}" class="university-link">{{#if this.athlete.university.shortName}}{{this.athlete.university.shortName}}{{else}}{{this.athlete.university.name}}{{/if}}</a></td>
                 <td class="points-column">{{this.points}}</td>
               </tr>
             {{/each}}

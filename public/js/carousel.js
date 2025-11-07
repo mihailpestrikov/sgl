@@ -1,9 +1,14 @@
 function setupModalWindow() {
     const modal = document.getElementById('modal');
+    if (!modal) return;
+
     const modalImg = document.getElementById('modal-image');
     const captionText = document.getElementById('caption');
     const closeBtn = document.querySelector('.modal-close');
     const downloadBtn = document.querySelector('.modal-download');
+
+    if (modal.dataset.initialized === 'true') return;
+    modal.dataset.initialized = 'true';
 
     document.querySelectorAll('.gallery-image').forEach(img => {
         img.onclick = function() {
@@ -75,7 +80,8 @@ function setupModalWindow() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (typeof Swiper !== 'undefined') {
+    const swiperContainer = document.querySelector('.swiper-container');
+    if (typeof Swiper !== 'undefined' && swiperContainer && !swiperContainer.swiper) {
         const swiper = new Swiper('.swiper-container', {
             speed: 800,
             slidesPerView: 1,

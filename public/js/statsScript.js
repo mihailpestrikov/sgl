@@ -1,4 +1,7 @@
 (function () {
+    if (window.statsScriptInitialized) return;
+    window.statsScriptInitialized = true;
+
     function displayPerformanceStats() {
         const performanceData = performance.getEntriesByType("navigation")[0];
         const totalPageLoadTime = performanceData.loadEventEnd - performanceData.startTime;

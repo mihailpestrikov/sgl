@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const modal = document.getElementById('modal');
+
+    if (!modal || galleryItems.length === 0 || modal.dataset.modalInitialized) return;
+    modal.dataset.modalInitialized = 'true';
+
     const modalImage = document.getElementById('modal-image');
     const caption = document.getElementById('caption');
     const closeButton = document.getElementsByClassName('close')[0];

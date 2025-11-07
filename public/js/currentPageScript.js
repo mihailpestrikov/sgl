@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const menuItems = document.querySelectorAll(".menu__list .link");
-
     const logoItem = document.querySelectorAll(".nav__title .link");
-
-    
     const allItems = [...menuItems, ...logoItem];
+
+    if (allItems.length === 0 || document.body.dataset.currentPageInitialized) return;
+    document.body.dataset.currentPageInitialized = 'true';
 
     allItems.forEach((link) => {
         const currentPath = window.location.pathname.replace(/^\/|\/$/g, '');

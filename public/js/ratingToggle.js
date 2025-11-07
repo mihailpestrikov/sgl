@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const typeButtons = document.querySelectorAll('.toggle-row:first-child .toggle-btn');
   const genderButtons = document.querySelectorAll('.toggle-row:last-child .toggle-btn');
 
+  if (typeButtons.length === 0 || document.body.dataset.ratingToggleInitialized) return;
+  document.body.dataset.ratingToggleInitialized = 'true';
+
   let activeType = 'teams';
   let activeGender = 'men';
 

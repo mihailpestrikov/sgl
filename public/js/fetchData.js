@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsList = document.getElementById('news-list');
     const preloader = document.getElementById('preloader');
 
+    if (!newsList || !preloader || document.body.dataset.fetchDataInitialized) return;
+    document.body.dataset.fetchDataInitialized = 'true';
+
     const renderPosts = (posts) => {
         newsList.innerHTML = '';
 
